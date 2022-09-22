@@ -77,10 +77,11 @@ void Controller::playGame() {
                     else {
                         // node was click-released on
                         bool moveIsLegal = false;
-                        if (model.getWastePile()->empty()) {
+                        if (node->getCard()->getFaceUp() == true && model.getWastePile()->empty()) {
                             moveIsLegal = true;
                         }
-                        else if (model.legalMove(node->getCard()->getValue(), model.getWastePile()->back()->getValue())) {
+                        else if (node->getCard()->getFaceUp() == true && 
+                                model.legalMove(node->getCard()->getValue(), model.getWastePile()->back()->getValue())) {
                             moveIsLegal = true;
                         }
                         if (moveIsLegal) {
